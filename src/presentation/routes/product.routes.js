@@ -5,9 +5,12 @@ const ProductController = require('../controllers/product.controller');
 const ProductService = require('../../application/use-cases/product.service');
 const MockProductRepository = require('../../infrastructure/repositories/product.mock.repository');
  
-const productRepository = new MockProductRepository();
+//const productRepository = new MockProductRepository();
 const productService = new ProductService(productRepository);
 const productController = new ProductController(productService);
+
+const ProductMongoRepository = require('../../infrastructure/database/mongo/product.mongo.repository');
+const productRepository = new ProductMongoRepository();
  
 const router = Router();
 router.get('/', productController.getAll);
