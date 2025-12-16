@@ -3,7 +3,7 @@ class MockProductRepository { // ¡Implementa la interfaz!
    async getAll() { return this.products; }
    async create(productData) {
        const newProduct = { ...productData, id: Date.now() };
-      this.products.push(newProduct);
+       this.products.push(newProduct);
        return newProduct;
    }
 }
